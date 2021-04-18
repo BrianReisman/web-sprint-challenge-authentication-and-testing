@@ -1,4 +1,4 @@
-# Authentication and Testing Sprint Challenge
+<!-- # Authentication and Testing Sprint Challenge
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
@@ -8,29 +8,15 @@ This is an individual assessment. All work must be your own. All projects will b
 
 You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support by dropping a :wave: in your help channel should a blocker arise.
 
-_Sprint challenges open at Midnight PST on Thursday and close at 5pm PST on Friday. You will receive feedback on what you have submitted by 5pm. No retakes will be accepted._
+_Sprint challenges open at Midnight PST on Thursday and close at 5pm PST on Friday. You will receive feedback on what you have submitted by 5pm. No retakes will be accepted._ -->
 
 ## Introduction
-
-Dad jokes are all the rage these days! In this challenge, you will build a real wise-guy application.
 
 Users must be able to call the `[POST] /api/auth/register` endpoint to create a new account, and the `[POST] /api/auth/login` endpoint to get a token.
 
 We also need to make sure nobody without the token can call `[GET] /api/jokes` and gain access to our dad jokes.
 
 We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library.
-
-## Instructions
-
-### Task 1: Project Set Up
-
-- [ ] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key.
-- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`.
-- [ ] Check to see that Codegrade has accepted your git submission.
-
-For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
 
 ### Task 2: Project Requirements
 
@@ -45,14 +31,9 @@ Your finished project must include all of the following requirements (further in
 - Execute all tests locally (Codegrade's and your own) by running `npm test`.
 - Do not exceed 2^8 rounds of hashing with `bcryptjs`.
 - If you use environment variables make sure to provide fallbacks in the code (e.g. `process.env.SECRET || "shh"`).
-- You are welcome to create additional files but **do not move or rename existing files** or folders.
-- Do not alter your `package.json` file except to install extra libraries. The "test" script has been added for you.
 - The database already has the `users` table, but if you run into issues, the migration is available.
-- In your solution, it is essential that you follow best practices and produce clean and professional results.
-- Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work.
-- It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
-### Task 3: Stretch Goals
+<!-- ### Task 3: Stretch Goals
 
 **IMPORTANT:** Don't break MVP by working on stretch goals! Run `npm test` and keep an eye on your tests.
 
@@ -69,7 +50,7 @@ These goals may or may not be things you have learned in this module but they bu
 - [ ] Please don't merge your own pull request and make sure **you are on your own repo**.
 - [ ] Check Codegrade for automated feedback.
 - [ ] Check Codegrade on Monday following the Sprint Challenge for reviewer feedback.
-- [ ] Any changes pushed after the deadline will not receive any feedback.
+- [ ] Any changes pushed after the deadline will not receive any feedback. -->
 
 ## Interview Questions
 

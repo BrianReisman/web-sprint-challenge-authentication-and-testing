@@ -1,36 +1,36 @@
-const router = require('express').Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-router.post('/register', (req, res) => {
-  res.end('implement register, please!');
-  /*
-    IMPLEMENT
-    You are welcome to build additional middlewares to help with the endpoint's functionality.
-    DO NOT EXCEED 2^8 ROUNDS OF HASHING!
+const router = require("express").Router();
 
-    1- In order to register a new account the client must provide `username` and `password`:
-      {
-        "username": "Captain Marvel", // must not exist already in the `users` table
-        "password": "foobar"          // needs to be hashed before it's saved
-      }
+const Model = require("./models");
 
-    2- On SUCCESSFUL registration,
-      the response body should have `id`, `username` and `password`:
-      {
-        "id": 1,
-        "username": "Captain Marvel",
-        "password": "2a$08$jG.wIGR2S4hxuyWNcBf9MuoC4y0dNy7qC/LbmtuFBSdIhWks2LhpG"
-      }
+router.post("/register", async (req, res) => {
+  let user = req.body;
 
-    3- On FAILED registration due to `username` or `password` missing from the request body,
-      the response body should include a string exactly as follows: "username and password required".
+  if (!user.password || !user.username) {
+    res.status(400).json({ message: "username and password required" });
+  }
 
-    4- On FAILED registration due to the `username` being taken,
-      the response body should include a string exactly as follows: "username taken".
-  */
+  const hash = bcrypt.hashSync(user.password, 8); // bcrypt before saving
+  user.password = hash;
+
+  const exists = await Model.findByName(user);
+  if (exists) {
+    res.status(400).json({ message: "username taken" });
+  }
+
+  Model.add(user)
+    .then((response) => {
+      res.status(201).json({ id: response[0], ...user });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
-router.post('/login', (req, res) => {
-  res.end('implement login, please!');
+router.post("/login", (req, res) => {
+  res.end("implement login, please!");
   /*
     IMPLEMENT
     You are welcome to build additional middlewares to help with the endpoint's functionality.
