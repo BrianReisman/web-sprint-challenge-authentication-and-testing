@@ -10,26 +10,26 @@ You are not allowed to collaborate during the sprint challenge. However, you are
 
 _Sprint challenges open at Midnight PST on Thursday and close at 5pm PST on Friday. You will receive feedback on what you have submitted by 5pm. No retakes will be accepted._ -->
 
-## Introduction
+<!-- ## Introduction -->
 
-Users must be able to call the `[POST] /api/auth/register` endpoint to create a new account, and the `[POST] /api/auth/login` endpoint to get a token.
+<!-- Users must be able to call the `[POST] /api/auth/register` endpoint to create a new account, and the `[POST] /api/auth/login` endpoint to get a token. -->
 
-We also need to make sure nobody without the token can call `[GET] /api/jokes` and gain access to our dad jokes.
+<!-- We also need to make sure nobody without the token can call `[GET] /api/jokes` and gain access to our dad jokes. -->
 
-We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library.
+<!-- We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and the `jsonwebtoken` library. -->
 
 ### Task 2: Project Requirements
 
-Your finished project must include all of the following requirements (further instructions are found inside each file):
+<!-- Your finished project must include all of the following requirements (further instructions are found inside each file): -->
 
-- [ ] An authentication workflow with functionality for account creation and login, implemented inside `api/auth/auth-router.js`.
-- [ ] Middleware used to restrict access to resources from non-authenticated requests, implemented inside `api/middleware/restricted.js`.
+<!-- - [ ] An authentication workflow with functionality for account creation and login, implemented inside `api/auth/auth-router.js`. -->
+<!-- - [ ] Middleware used to restrict access to resources from non-authenticated requests, implemented inside `api/middleware/restricted.js`. -->
 - [ ] A minimum of 2 tests per API endpoint, written inside `api/server.test.js`.
 
 **Notes:**
 
 - Execute all tests locally (Codegrade's and your own) by running `npm test`.
-- Do not exceed 2^8 rounds of hashing with `bcryptjs`.
+<!-- - Do not exceed 2^8 rounds of hashing with `bcryptjs`. -->
 - If you use environment variables make sure to provide fallbacks in the code (e.g. `process.env.SECRET || "shh"`).
 - The database already has the `users` table, but if you run into issues, the migration is available.
 

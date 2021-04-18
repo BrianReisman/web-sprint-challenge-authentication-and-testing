@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const router = require("express").Router();
 
 const Model = require("./models");
+const jwtsecret = 'shh'
 
 router.post("/register", async (req, res) => {
   let user = req.body;
@@ -44,12 +45,10 @@ router.post("/login", (req, res) => {
         message: `Welcome, ${user.username}`,
         token,
       });
+    } else {
+      res.status(400).json({ message: "invalid credentials" });
     }
   });
-  /*
-    4- On FAILED login due to `username` not existing in the db, or `password` being incorrect,
-      the response body should include a string exactly as follows: "invalid credentials".
-  */
 });
 
 function generateToken(user) {
@@ -57,12 +56,11 @@ function generateToken(user) {
     sub: user.id,
     username: user.username,
   };
-  const secret = "shh";
   const options = {
     expiresIn: "1h",
   };
 
-  return jwt.sign(payload, secret, options);
+  return jwt.sign(payload, jwtsecret, options);
 }
 
 module.exports = router;
